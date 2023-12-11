@@ -27,7 +27,7 @@ topic = "terra/led"            # Replace with the desired MQTT topic
 
 # Callback functions for MQTT client
 
-""" Callback functions are used to define how the script should react to 
+""" Callback functions are used to define how the code should react to 
     MQTT events such as connecting to the broker and receiving messages """
 
 
