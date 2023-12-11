@@ -4,6 +4,7 @@ to an MQTT broker, subscribe to a specific topic, and control a GPIO pin
 on a Raspberry Pi based on the received MQTT messages (turning it on or off) """
 
 
+""" ----------------------------------------------------------------------------------------------------------- """
 
 # Import the necessary libraries
 
@@ -53,7 +54,9 @@ def on_message(client, userdata, message): # Callback function called when a mes
        GPIO.output(2, 0)  # Turn GPIO pin 2 off
         
     print(f"Received message on topic '{message.topic}': {message.payload.decode()}") # Prints if message is received
+    
 
+""" ----------------------------------------------------------------------------------------------------------- """
 
 
 
