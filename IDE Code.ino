@@ -1,19 +1,33 @@
+/* This code essentially turns the ESP32 into an MQTT-enabled device that periodically 
+   publishes sensor data to a specified topic. The device connects to Wi-Fi and establishes 
+   an MQTT connection, ensuring the continuous flow of data. */
+
+
+/* ----------------------------------------------------------------------------------------- */
+
 // Libraries to integrate functionality
 
 #include <WiFi.h>         // For the wifi connection
 #include <PubSubClient.h> // For the MQTT messaging
 #include <Arduino.h>      // For the Input and output
 
+/* ----------------------------------------------------------------------------------------- */
+
 // Wi-Fi credentials: replace with those of your network
 
 const char* ssid = "iot_wireless";  // The name of the WiFi network
 const char* password = "Unsecure!"; // The WiFi network passkey
+
+/* ----------------------------------------------------------------------------------------- */
 
 // MQTT broker details: replace with your own
 
 const char* mqtt_server = "michaela-pi.local"; // The MQTT broker's hostname or IP address
 const int mqtt_port = 1883;                    // MQTT broker port (1883 is default)
 const char* mqtt_topic = "terra/hum";          // MQTT topic to publish messages
+
+/* ----------------------------------------------------------------------------------------- */
+
 
 // MQTT client name prefix (will add MAC address)
 
@@ -28,6 +42,9 @@ unsigned long previousMillis = 0;
 const long interval = 5000;
 
 String Message;
+
+
+/* ----------------------------------------------------------------------------------------- */
 
 void setup() {           // Start Serial Communication
 
@@ -46,6 +63,10 @@ void setup() {           // Start Serial Communication
   snprintf(macStr, sizeof(macStr), "%02X:%02X:%02X:%02X:%02X:%02X", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]); 
 
   name = name + macStr;   // Concatenate the name prefix with the MAC address
+  
+
+  /* ----------------------------------------------------------------------------------------- */
+  
 
   // Connect to Wi-Fi
 
@@ -60,6 +81,9 @@ void setup() {           // Start Serial Communication
   client.setServer(mqtt_server, mqtt_port);  // Set MQTT server and port
 
 }                                            // End of Setup
+
+
+/* ----------------------------------------------------------------------------------------- */
 
 
 void loop() {                  // Connect to MQTT if necessary
@@ -83,6 +107,10 @@ void loop() {                  // Connect to MQTT if necessary
     Serial.println("Message sent: Hello all from " + name);
 
   }  // End of If
+  
+
+  /* ----------------------------------------------------------------------------------------- */
+  
 
   // Allow the PubSubClient to process incoming messages
 
@@ -94,6 +122,9 @@ void loop() {                  // Connect to MQTT if necessary
   Serial.println("Analog Sensor Value: " + String(analogRead(34)));  // Print the analog sensor value to Serial Monitor
 
 }  // End of Loop
+
+
+/* ----------------------------------------------------------------------------------------- */
 
 
 void connect() {   // Function to Connect
@@ -116,3 +147,6 @@ void connect() {   // Function to Connect
     }                                                           // End of Else
   }                                                             // End of While
 }                                                               // End of Connect Function
+
+
+/* ----------------------------------------------------------------------------------------- */
