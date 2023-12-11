@@ -1,8 +1,7 @@
 
-/* This code essentially turns the ESP32 into an MQTT-enabled device that periodically 
-   publishes sensor data to a specified topic. The device connects to Wi-Fi and establishes 
-   an MQTT connection, ensuring the continuous flow of data. */
-
+/* This code essentially turns the ESP32 into an MQTT-enabled device that periodically publishes 
+   sensor data to a specified topic. The device connects to Wi-Fi and establishes an MQTT connection, 
+                             ensuring the continuous flow of data */
 
 
 /* ----------------------------------------------------------------------------------------- */
