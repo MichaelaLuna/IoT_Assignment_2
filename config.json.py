@@ -1,4 +1,5 @@
-# This file is use to define a set of conditions and the corresponding results to those conditions. This is like the dictionary or set of rules of the Code. 
+""" This file is use to define a set of conditions and the corresponding results 
+   to those conditions. This is like the dictionary or set of rules of the Code """
 
 [
     # First condition block: If the potentiometer value is giving greater than 200
