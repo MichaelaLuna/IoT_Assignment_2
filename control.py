@@ -1,3 +1,5 @@
+""" This code establishes an MQTT connection, subscribes to specified topics, and executes actions 
+based on predefined conditions and results stored in a configuration file (in this case, "config.json") """
 
 # Import the necessary libraries
 
