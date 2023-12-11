@@ -4,6 +4,7 @@
    an MQTT connection, ensuring the continuous flow of data. */
 
 
+
 /* ----------------------------------------------------------------------------------------- */
 
 // Libraries to integrate functionality
